@@ -17,5 +17,12 @@ return [
     'error' => 'Whoops! Something went wrong!',
     'messages' => 'Laravel Quickstart - Intermediate',
     'add_task' => 'Add Task',
-
+    'Login' => 'Login',
+    'Password' => 'Password',
+    'Remember Me' => 'Remember Me',
+    'Register' => 'Register',
+    'E-Mail Address' => 'E-Mail Address',
+    'Forgot Your Password?' => 'Forgot Your Password?',
+    'Confirm Password' => 'Confirm Password',
+    'Name' => 'Name',
 ];

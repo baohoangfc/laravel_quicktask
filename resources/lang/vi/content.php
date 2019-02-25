@@ -17,5 +17,12 @@ return [
     'error' => 'Rất tiếc! Đã xảy ra lỗi!',
     'messages' => 'Bắt đầu nhanh với Laravel',
     'add_task' => 'Thêm Công Việc',
-
+    'Login' => 'Đăng Nhập',
+    'Password' => 'Mật Khẩu',
+    'Remember Me' => 'Nhớ Tôi',
+    'Register' => 'Đăng Kí',
+    'E-Mail Address' => 'Địa Chỉ Email',
+    'Forgot Your Password?' => 'Quên Mật Khẩu?',
+    'Confirm Password' => 'Xác Nhận Mật Khẩu',
+    'Name' => 'Tên Đăng Nhập',
 ];

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Requests\FormRequest;
 use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
