@@ -8,6 +8,8 @@
                 <div class="card-header">{{ trans('content.Login') }}</div>
 
                 <div class="card-body">
+                    @include('common.errors')
+
                     {!! Form::open(['route' => 'login', 'method' => 'POST']) !!}
 
                         <div class="form-group row">
