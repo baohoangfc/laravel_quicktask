@@ -10,8 +10,8 @@
                 <div class="card-body">
                     @include('common.message')
 
-                    {{ trans('content.before_verify') }}
-                    {{ trans('content.not_receive') }}, <a href="{{ route('verification.resend') }}">{{ trans('content.click_request') }}</a>.
+                    @lang('content.before_verify')
+                    @lang('content.not_receive'), <a href="{{ route('verification.resend') }}">@lang('content.click_request')</a>.
                 </div>
             </div>
         </div>

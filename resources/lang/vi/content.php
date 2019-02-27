@@ -33,4 +33,12 @@ return [
     'not_receive' => 'Nếu bạn không nhận được email',
     'click_request' => 'bấm vào đây để yêu cầu cái khác',
     'logout' => 'Đăng Xuất',
+    'add_success' => 'Thêm công việc thành công',
+    'add_fail' => 'Thêm một công việc thất bại',
+    'delete_success' => 'Xóa công việc thành công',
+    'delete_fail' => 'Xóa công việc thất bại',
+    'btn_delete' => 'Xóa',
+    'dashbroad' => 'Bảng Điều Khiển',
+    'msg_login' => 'Bạn đã đăng nhập!',
+    'current_task' => 'Các Công Việc Hiện Tại',
 ];

@@ -1,25 +1,43 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="panel-body">
+    <div class="panel-body">
 
         @include('common.errors')
+        @include('common.message')
 
-        {!! Form::open(['route' => 'tasks.index', 'method' => 'POST', 'class' => 'form-horizontal']) !!}
+        @include('tasks.create')
 
-            <div class="form-group">
-                {{ Form::label('task-name', trans('content.task'), ['class' => 'col-sm-3 control-label']) }}
+        @if (count($tasks) > config('setting.number_default'))
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    @lang('content.current_task')
+                </div>
 
-                <div class="col-sm-6">
-                    {{ Form::text('name', null, ['class' => 'form-control']) }}
+                <div class="panel-body">
+                    <table class="table table-striped task-table">
+                        <thead>
+                            <th>@lang('content.task')</th>
+                            <th>&nbsp;</th>
+                        </thead>
+                        <tbody>
+                            @foreach ($tasks as $task)
+                                <tr>
+                                    <td class="table-text">
+                                        <div>{{ $task->name }}</div>
+                                    </td>
+
+                                    <td>
+                                        {!! Form::open(['route' => ['tasks.destroy', $task->id], 'method' => 'DELETE']) !!}
+                                            {!! Form::submit( trans('content.btn_delete'), ['class' => 'btn btn-danger']) !!}
+                                        {!! Form::close() !!}
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
-
-            <div class="form-group">
-                <div class="col-sm-offset-3 col-sm-6">
-                    {!! Form::submit( trans('content.add_task'), ['class' => 'btn btn-default']) !!}
-                </div>
-            </div>
-        {!! Form::close() !!}
+        @endif
     </div>
 @endsection
