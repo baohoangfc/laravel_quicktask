@@ -5,62 +5,47 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ trans('content.Register') }}</div>
+                <div class="card-header">@lang('content.register')</div>
 
                 <div class="card-body">
+                    @include('common.errors')
+
                     {!! Form::open(['route' => 'register', 'method' => 'POST']) !!}
                         <div class="form-group row">
-                            {{ Form::label('name', trans('content.Name'), ['class' => 'col-md-4 col-form-label text-md-right']) }}
+                            {{ Form::label('name', trans('content.name_login'), ['class' => 'col-md-4 col-form-label text-md-right']) }}
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
+                                {{ Form::text('name', old('name'), ['class' => ['form-control', $errors->has('name') ? ' is-invalid' : ''], 'id' => 'name', 'required' => 'required', 'autofocus' => 'autofocus']) }}
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            {{ Form::label('email', trans('content.E-Mail Address'), ['class' => 'col-md-4 col-form-label text-md-right']) }}
+                            {{ Form::label('email', trans('content.email_address'), ['class' => 'col-md-4 col-form-label text-md-right']) }}
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
+                                {{ Form::text('email', old('email'), ['class' => ['form-control', $errors->has('email') ? ' is-invalid' : ''], 'id' => 'email', 'required' => 'required']) }}
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            {{ Form::label('password', trans('content.Password'), ['class' => 'col-md-4 col-form-label text-md-right']) }}
+                            {{ Form::label('password', trans('content.btn_password'), ['class' => 'col-md-4 col-form-label text-md-right']) }}
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
+                                {{ Form::password('password', ['class' => ['form-control', $errors->has('password') ? ' is-invalid' : ''], 'id' => 'password', 'required' => 'required']) }}
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            {{ Form::label('password-confirm', trans('content.Confirm Password'), ['class' => 'col-md-4 col-form-label text-md-right']) }}
+                            {{ Form::label('password-confirm', trans('content.confirm_pw'), ['class' => 'col-md-4 col-form-label text-md-right']) }}
+
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                {{ Form::password('password_confirmation', ['class' => 'form-control', 'id' => 'password-confirm', 'required' => 'required']) }}
                             </div>
                         </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                {!! Form::submit( trans('content.Register'), ['class' => 'btn btn-primary']) !!}
+                                {!! Form::submit( trans('content.register'), ['class' => 'btn btn-primary']) !!}
                             </div>
                         </div>
                     {!! Form::close() !!}

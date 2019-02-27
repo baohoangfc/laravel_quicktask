@@ -5,58 +5,46 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ trans('content.Login') }}</div>
+                <div class="card-header">@lang('content.btn_login')</div>
 
                 <div class="card-body">
+                    @include('common.errors')
+
                     {!! Form::open(['route' => 'login', 'method' => 'POST']) !!}
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ trans('content.E-Mail Address') }}</label>
+                            {{ Form::label('email', trans('content.email_address'), ['class' => 'col-md-4 col-form-label text-md-right']) }}
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
+                                {{ Form::text('email', old('email'), ['class' => ['form-control', $errors->has('email') ? ' is-invalid' : ''], 'id' => 'name', 'required' => 'required', 'autofocus' => 'autofocus']) }}
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ trans('content.Password') }}</label>
+                            {{ Form::label('password', trans('content.btn_password'), ['class' => 'col-md-4 col-form-label text-md-right']) }}
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
+                                {{ Form::password('password', ['class' => ['form-control', $errors->has('password') ? ' is-invalid' : ''], 'id' => 'password', 'required' => 'required']) }}
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                    {{ Form::checkbox('remember', old('remember') ? 'checked' : '', true, ['class' => ['form-check-input'] ,'id' => 'remember'] )}}
 
-                                    <label class="form-check-label" for="remember">
-                                        {{ trans('content.Remember Me') }}
-                                    </label>
+                                    {{ Form::label('remember', trans('content.remember_me'), ['class' => 'form-check-label']) }}
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                {!! Form::submit( trans('content.Login'), ['class' => 'btn btn-primary']) !!}
+                                {!! Form::submit( trans('content.btn_login'), ['class' => 'btn btn-primary']) !!}
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ trans('content.Forgot Your Password?') }}
+                                        {{ trans('content.forgot_pw') }}
                                     </a>
                                 @endif
                             </div>
