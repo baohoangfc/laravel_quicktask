@@ -39,7 +39,7 @@ class TaskController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FormRequest $request)
     {
         Task::create($request->all());
     }
@@ -86,6 +86,6 @@ class TaskController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Posts::find($id)->delete();
     }
 }

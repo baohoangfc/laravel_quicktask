@@ -23,8 +23,14 @@
                                 <div>{{ $task->name }}</div>
                             </td>
 
+                            <!-- Delete Button -->
                             <td>
-                                <!-- TODO: Delete Button -->
+                                {!! Form::open(['route' => 'tasks/'.$task->id, 'method' => 'DELETE']) !!}
+
+                                    <button type="submit" id="delete-task-{{ $task->id }}" class="btn btn-danger">
+                                        <i class="fa fa-btn fa-trash"></i>Delete
+                                    </button>
+                                {!! Form::close() !!}
                             </td>
                         </tr>
                     @endforeach
