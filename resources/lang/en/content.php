@@ -33,4 +33,12 @@ return [
     'not_receive' => 'If you did not receive the email',
     'click_request' => 'click here to request another',
     'logout' => 'logout',
+    'add_success' => 'Add A Successful Task',
+    'add_fail' => 'Add A Faulty Task',
+    'delete_success' => 'Delete A Successful Task',
+    'delete_fail' => 'Delete A Faulty Task',
+    'btn_delete' => 'Delete',
+    'dashbroad' => 'Dashbroad',
+    'msg_login' => 'You are logged in!',
+    'current_task' => 'Current Task',
 ];

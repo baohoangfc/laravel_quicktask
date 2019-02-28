@@ -9,6 +9,7 @@ class Task extends Model
 {
     public $fillable = [
         'name',
+        'user_id'
     ];
 
     public function user()
